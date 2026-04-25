@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bekasi Marathon 2026</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  background: #f5f6f8;
+}
+
+/* HEADER */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background: white;
+  position: sticky;
+  top: 0;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo img {
+  width: 40px;
+}
+
+.menu {
+  font-size: 24px;
+}
+
+/* HERO */
+.hero {
+  background: url('hero.jpg') center/cover no-repeat;
+  padding: 100px 20px;
+  color: white;
+  position: relative;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+.badge {
+  background: #1e73ff;
+  padding: 6px 14px;
+  border-radius: 20px;
+  display: inline-block;
+  margin-bottom: 10px;
+  font-size: 12px;
+}
+
+.hero h1 {
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  margin: 5px 0;
+  opacity: 0.9;
+}
+
+/* SECTION */
+section {
+  background: white;
+  margin-top: 10px;
+  padding: 20px;
+}
+
+h2 {
+  margin-bottom: 10px;
+}
+
+/* TICKET */
+.ticket {
+  border: 1px solid #eee;
+  border-radius: 12px;
+  padding: 15px;
+  margin-bottom: 15px;
+}
+
+.ticket h3 {
+  margin-bottom: 5px;
+}
+
+.price {
+  color: #1e73ff;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+button {
+  background: #e0e0e0;
+  border: none;
+  padding: 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  width: 100%;
+  font-weight: bold;
+}
+
+button:hover {
+  background: #1e73ff;
+  color: white;
+}
+
+/* DETAIL */
+.detail p {
+  margin: 5px 0;
+}
+
+.link {
+  color: #1e73ff;
+}
+
+/* SUMMARY */
+.summary {
+  text-align: center;
+}
+
+.total {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.buy-btn {
+  margin-top: 15px;
+  background: #ccc;
+}
+
+/* FOOTER */
+footer {
+  background: #fff;
+  padding: 20px;
+  margin-top: 10px;
+}
+
+.footer-title {
+  font-weight: bold;
+  margin-top: 15px;
+}
+
+input {
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+}
+
+.subscribe {
+  margin-top: 10px;
+  background: #1e73ff;
+  color: white;
+}
+
+.small {
+  text-align: center;
+  margin-top: 20px;
+  color: #777;
+}
+</style>
+
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="logo">
+    <img src="logo.png" alt="logo">
+    <h2>EventKita</h2>
+  </div>
+  <div class="menu">☰</div>
+</header>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-content">
+    <div class="badge">OLAHRAGA</div>
+    <h1>BEKASI MARATHON 2026</h1>
+    <p>By CEORUNNERS</p>
+    <p>Minggu, 9 Agustus 2026</p>
+  </div>
+</div>
+
+<!-- TENTANG -->
+<section>
+  <h2>Tentang Event</h2>
+  <p>
+    Berlokasi di Kota Harapan Indah, Bekasi Marathon menghadirkan venue yang hijau dan nyaman bagi para pelari.
+    Suasana yang asri tidak hanya mendukung performa lari secara optimal, tetapi juga menciptakan pengalaman berlari yang menyenangkan.
+    Didukung dengan fasilitas yang memadai, seluruh peserta dapat menikmati kenyamanan sekaligus keamanan sepanjang acara.
+  </p>
+</section>
+
+<!-- TIKET -->
+<section>
+  <h2>Pilih Tiket</h2>
+
+  <div class="ticket">
+    <h3>5K - Flash Sale</h3>
+    <div class="price">Rp. 250.000</div>
+    <button>Pilih Tiket</button>
+  </div>
+
+  <div class="ticket">
+    <h3>10K - Flash Sale</h3>
+    <div class="price">Rp. 300.000</div>
+    <button>Pilih Tiket</button>
+  </div>
+
+  <div class="ticket">
+    <h3>HM - Flash Sale</h3>
+    <div class="price">Rp. 450.000</div>
+    <button>Pilih Tiket</button>
+  </div>
+
+  <div class="ticket">
+    <h3>FM - Flash Sale</h3>
+    <div class="price">Rp. 600.000</div>
+    <button>Pilih Tiket</button>
+  </div>
+
+</section>
+
+<!-- DETAIL -->
+<section class="detail">
+  <h2>Detail Lokasi</h2>
+  <p>Kota Harapan Indah</p>
+  <p class="link">Lihat di Peta</p>
+
+  <h3>Waktu</h3>
+  <p>Start: 04.00 WIB</p>
+
+  <h3>CEORUNNERS</h3>
+  <p>Diselenggarakan oleh</p>
+  <strong>CEORUNNERS</strong>
+</section>
+
+<!-- RINGKASAN -->
+<section class="summary">
+  <h2>Ringkasan Pesanan</h2>
+  <p>Belum ada tiket yang dipilih</p>
+
+  <div class="total">
+    <span>Total Bayar</span>
+    <strong>Gratis</strong>
+  </div>
+
+  <button class="buy-btn">Beli Tiket Sekarang →</button>
+  <p style="font-size:12px;">Transaksi aman & terenkripsi</p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <h2>EventKita</h2>
+  <p>Temukan dan beli tiket event favoritmu dengan mudah, cepat, dan aman.</p>
+
+  <div class="footer-title">Perusahaan</div>
+  <p>Tentang Kami</p>
+  <p>Karir</p>
+  <p>Blog</p>
+  <p>Partner</p>
+
+  <div class="footer-title">Dukungan</div>
+  <p>Pusat Bantuan</p>
+  <p>Syarat & Ketentuan</p>
+  <p>Kebijakan Privasi</p>
+  <p>Hubungi Kami</p>
+
+  <div class="footer-title">Langganan Berita</div>
+  <p>Dapatkan info event terbaru setiap minggu.</p>
+
+  <input type="email" placeholder="Email kamu">
+  <button class="subscribe">Langganan</button>
+
+  <div class="small">
+    © 2026 EventKita Indonesia
+  </div>
+</footer>
+
+</body>
+</html>
