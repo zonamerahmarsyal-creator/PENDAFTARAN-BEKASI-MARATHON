@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Run Registration</title>
+<title>Bekasi Marathon Registration</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
@@ -11,24 +11,24 @@
 body {
   margin:0;
   font-family:'Poppins', sans-serif;
-  background: linear-gradient(135deg, #00c6ff, #0072ff);
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
   color:#fff;
 }
 
-/* HEADER BANNER */
+/* HEADER */
 .header {
   position:relative;
 }
 .header img {
   width:100%;
-  height:200px;
+  height:220px;
   object-fit:cover;
 }
 .timer {
   position:absolute;
-  bottom:10px;
+  bottom:15px;
   right:20px;
-  background:#ff416c;
+  background:#ff3c3c;
   padding:8px 15px;
   border-radius:20px;
   font-weight:bold;
@@ -38,10 +38,10 @@ body {
 .container {
   max-width:600px;
   margin:20px auto;
-  background:rgba(255,255,255,0.1);
+  background:rgba(255,255,255,0.08);
   padding:20px;
   border-radius:20px;
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(12px);
 }
 
 /* SECTION */
@@ -67,6 +67,17 @@ button {
   color:#fff;
   font-weight:bold;
   cursor:pointer;
+}
+
+/* PRICE BOX */
+.price-box {
+  background:#fff;
+  color:#000;
+  padding:10px;
+  border-radius:10px;
+  text-align:center;
+  margin-top:10px;
+  font-weight:bold;
 }
 
 /* QRIS */
@@ -124,13 +135,17 @@ button {
 <!-- SECTION 2 -->
 <div class="section">
 <h3>Race Category</h3>
-<select required>
-<option value="">Category</option>
-<option>5K</option>
-<option>10K</option>
-<option>Half Marathon</option>
-<option>Full Marathon</option>
+
+<select id="race" onchange="updatePrice()" required>
+<option value="">Pilih Category</option>
+<option value="250000">5K - Rp 250.000</option>
+<option value="300000">10K - Rp 300.000</option>
+<option value="450000">HM - Rp 450.000</option>
+<option value="600000">FM - Rp 600.000</option>
 </select>
+
+<div class="price-box" id="priceBox">Harga: -</div>
+
 <select required>
 <option value="">T-Shirt Size</option>
 <option>S</option>
@@ -138,6 +153,7 @@ button {
 <option>L</option>
 <option>XL</option>
 </select>
+
 <button onclick="prev()">Back</button>
 <button onclick="next()">Next</button>
 </div>
@@ -158,7 +174,7 @@ button {
 
 <div class="qris">
 <p>Scan QRIS:</p>
-<img src="qris-pembayaran.png"> <!-- GANTI QRIS DISINI -->
+<img src="qris-pembayaran.png">
 </div>
 
 <select required>
@@ -185,7 +201,7 @@ button {
 <h2>🎉 Registration Successful!</h2>
 <p>Kami akan konfirmasi melalui E-mail Anda.</p>
 <p>Silakan cek inbox atau spam secara berkala.</p>
-🔥 See you at the starting line!
+<p>🔥 See you at the starting line!</p>
 </div>
 
 </div>
@@ -222,6 +238,18 @@ function prev(){
   show(current);
 }
 
+/* UPDATE HARGA */
+function updatePrice(){
+  let price = document.getElementById("race").value;
+  let box = document.getElementById("priceBox");
+
+  if(price){
+    box.innerHTML = "Harga: Rp " + Number(price).toLocaleString("id-ID");
+  } else {
+    box.innerHTML = "Harga: -";
+  }
+}
+
 /* SUBMIT */
 function submitForm(){
   if(!validate()) return;
@@ -232,10 +260,10 @@ function submitForm(){
   setTimeout(()=>{
     document.getElementById("loading").style.display="none";
     document.getElementById("thankyou").style.display="block";
-  },5000);
+  },3000);
 }
 
-/* COUNTDOWN 10 MENIT */
+/* COUNTDOWN */
 let time = 600;
 let timerEl = document.getElementById("timer");
 
@@ -247,11 +275,8 @@ let countdown = setInterval(()=>{
   time--;
   if(time < 0){
     clearInterval(countdown);
-    current = 1;
-    show(current);
   }
 },1000);
-
 </script>
 
 </body>
