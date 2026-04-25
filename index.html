@@ -1,305 +1,258 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bekasi Marathon 2026</title>
+<title>Run Registration</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
 <style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Segoe UI', sans-serif;
-}
-
 body {
-  background: #f5f6f8;
+  margin:0;
+  font-family:'Poppins', sans-serif;
+  background: linear-gradient(135deg, #00c6ff, #0072ff);
+  color:#fff;
 }
 
-/* HEADER */
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 20px;
-  background: white;
-  position: sticky;
-  top: 0;
+/* HEADER BANNER */
+.header {
+  position:relative;
+}
+.header img {
+  width:100%;
+  height:200px;
+  object-fit:cover;
+}
+.timer {
+  position:absolute;
+  bottom:10px;
+  right:20px;
+  background:#ff416c;
+  padding:8px 15px;
+  border-radius:20px;
+  font-weight:bold;
 }
 
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.logo img {
-  width: 40px;
-}
-
-.menu {
-  font-size: 24px;
-}
-
-/* HERO */
-.hero {
-  background: url('hero.jpg') center/cover no-repeat;
-  padding: 100px 20px;
-  color: white;
-  position: relative;
-}
-
-.hero::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.6);
-}
-
-.hero-content {
-  position: relative;
-  z-index: 2;
-}
-
-.badge {
-  background: #1e73ff;
-  padding: 6px 14px;
-  border-radius: 20px;
-  display: inline-block;
-  margin-bottom: 10px;
-  font-size: 12px;
-}
-
-.hero h1 {
-  font-size: 30px;
-  margin-bottom: 10px;
-}
-
-.hero p {
-  margin: 5px 0;
-  opacity: 0.9;
+/* CONTAINER */
+.container {
+  max-width:600px;
+  margin:20px auto;
+  background:rgba(255,255,255,0.1);
+  padding:20px;
+  border-radius:20px;
+  backdrop-filter: blur(10px);
 }
 
 /* SECTION */
-section {
-  background: white;
-  margin-top: 10px;
-  padding: 20px;
+.section { display:none; }
+.section.active { display:block; }
+
+/* INPUT */
+input, select, textarea {
+  width:100%;
+  padding:12px;
+  margin:8px 0;
+  border:none;
+  border-radius:10px;
 }
 
-h2 {
-  margin-bottom: 10px;
-}
-
-/* TICKET */
-.ticket {
-  border: 1px solid #eee;
-  border-radius: 12px;
-  padding: 15px;
-  margin-bottom: 15px;
-}
-
-.ticket h3 {
-  margin-bottom: 5px;
-}
-
-.price {
-  color: #1e73ff;
-  font-weight: bold;
-  margin: 10px 0;
-}
-
+/* BUTTON */
 button {
-  background: #e0e0e0;
-  border: none;
-  padding: 12px;
-  border-radius: 10px;
-  cursor: pointer;
-  width: 100%;
-  font-weight: bold;
+  padding:12px 20px;
+  margin-top:10px;
+  border:none;
+  border-radius:30px;
+  background: linear-gradient(90deg, #ff416c, #ff4b2b);
+  color:#fff;
+  font-weight:bold;
+  cursor:pointer;
 }
 
-button:hover {
-  background: #1e73ff;
-  color: white;
+/* QRIS */
+.qris {
+  text-align:center;
+}
+.qris img {
+  width:200px;
+  margin-bottom:10px;
 }
 
-/* DETAIL */
-.detail p {
-  margin: 5px 0;
+/* LOADING */
+.loading, .thankyou {
+  display:none;
+  text-align:center;
 }
-
-.link {
-  color: #1e73ff;
+.spinner {
+  border:6px solid #fff;
+  border-top:6px solid #ff416c;
+  border-radius:50%;
+  width:50px;
+  height:50px;
+  animation:spin 1s linear infinite;
+  margin:20px auto;
 }
-
-/* SUMMARY */
-.summary {
-  text-align: center;
-}
-
-.total {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 10px;
-}
-
-.buy-btn {
-  margin-top: 15px;
-  background: #ccc;
-}
-
-/* FOOTER */
-footer {
-  background: #fff;
-  padding: 20px;
-  margin-top: 10px;
-}
-
-.footer-title {
-  font-weight: bold;
-  margin-top: 15px;
-}
-
-input {
-  width: 100%;
-  padding: 12px;
-  margin-top: 10px;
-  border-radius: 10px;
-  border: 1px solid #ccc;
-}
-
-.subscribe {
-  margin-top: 10px;
-  background: #1e73ff;
-  color: white;
-}
-
-.small {
-  text-align: center;
-  margin-top: 20px;
-  color: #777;
+@keyframes spin {
+  100% { transform:rotate(360deg); }
 }
 </style>
-
 </head>
+
 <body>
 
-<!-- HEADER -->
-<header>
-  <div class="logo">
-    <img src="logo.png" alt="logo">
-    <h2>EventKita</h2>
-  </div>
-  <div class="menu">☰</div>
-</header>
-
-<!-- HERO -->
-<div class="hero">
-  <div class="hero-content">
-    <div class="badge">OLAHRAGA</div>
-    <h1>BEKASI MARATHON 2026</h1>
-    <p>By CEORUNNERS</p>
-    <p>Minggu, 9 Agustus 2026</p>
-  </div>
+<div class="header">
+<img src="banner.jpg">
+<div class="timer" id="timer">10:00</div>
 </div>
 
-<!-- TENTANG -->
-<section>
-  <h2>Tentang Event</h2>
-  <p>
-    Berlokasi di Kota Harapan Indah, Bekasi Marathon menghadirkan venue yang hijau dan nyaman bagi para pelari.
-    Suasana yang asri tidak hanya mendukung performa lari secara optimal, tetapi juga menciptakan pengalaman berlari yang menyenangkan.
-    Didukung dengan fasilitas yang memadai, seluruh peserta dapat menikmati kenyamanan sekaligus keamanan sepanjang acara.
-  </p>
-</section>
+<div class="container">
 
-<!-- TIKET -->
-<section>
-  <h2>Pilih Tiket</h2>
+<!-- SECTION 1 -->
+<div class="section active">
+<h3>Personal Information</h3>
+<input type="text" placeholder="Full Name" required>
+<input type="email" placeholder="Email" required>
+<input type="text" placeholder="Phone Number" required>
+<select required>
+<option value="">Gender</option>
+<option>Male</option>
+<option>Female</option>
+</select>
+<button onclick="next()">Next</button>
+</div>
 
-  <div class="ticket">
-    <h3>5K - Flash Sale</h3>
-    <div class="price">Rp. 250.000</div>
-    <button>Pilih Tiket</button>
-  </div>
+<!-- SECTION 2 -->
+<div class="section">
+<h3>Race Category</h3>
+<select required>
+<option value="">Category</option>
+<option>5K</option>
+<option>10K</option>
+<option>Half Marathon</option>
+<option>Full Marathon</option>
+</select>
+<select required>
+<option value="">T-Shirt Size</option>
+<option>S</option>
+<option>M</option>
+<option>L</option>
+<option>XL</option>
+</select>
+<button onclick="prev()">Back</button>
+<button onclick="next()">Next</button>
+</div>
 
-  <div class="ticket">
-    <h3>10K - Flash Sale</h3>
-    <div class="price">Rp. 300.000</div>
-    <button>Pilih Tiket</button>
-  </div>
+<!-- SECTION 3 -->
+<div class="section">
+<h3>Health</h3>
+<input type="text" placeholder="Blood Type" required>
+<textarea placeholder="Medical Condition" required></textarea>
+<input type="text" placeholder="Emergency Contact" required>
+<button onclick="prev()">Back</button>
+<button onclick="next()">Next</button>
+</div>
 
-  <div class="ticket">
-    <h3>HM - Flash Sale</h3>
-    <div class="price">Rp. 450.000</div>
-    <button>Pilih Tiket</button>
-  </div>
+<!-- SECTION 4 -->
+<div class="section">
+<h3>Payment</h3>
 
-  <div class="ticket">
-    <h3>FM - Flash Sale</h3>
-    <div class="price">Rp. 600.000</div>
-    <button>Pilih Tiket</button>
-  </div>
+<div class="qris">
+<p>Scan QRIS:</p>
+<img src="qris-pembayaran.png"> <!-- GANTI QRIS DISINI -->
+</div>
 
-</section>
+<select required>
+<option value="">Payment Method</option>
+<option>QRIS</option>
+<option>Bank Transfer</option>
+<option>E-Wallet</option>
+</select>
 
-<!-- DETAIL -->
-<section class="detail">
-  <h2>Detail Lokasi</h2>
-  <p>Kota Harapan Indah</p>
-  <p class="link">Lihat di Peta</p>
+<input type="file" required>
 
-  <h3>Waktu</h3>
-  <p>Start: 04.00 WIB</p>
+<button onclick="prev()">Back</button>
+<button onclick="submitForm()">Submit</button>
+</div>
 
-  <h3>CEORUNNERS</h3>
-  <p>Diselenggarakan oleh</p>
-  <strong>CEORUNNERS</strong>
-</section>
+<!-- LOADING -->
+<div class="loading" id="loading">
+<div class="spinner"></div>
+<p>Processing...</p>
+</div>
 
-<!-- RINGKASAN -->
-<section class="summary">
-  <h2>Ringkasan Pesanan</h2>
-  <p>Belum ada tiket yang dipilih</p>
+<!-- THANK YOU -->
+<div class="thankyou" id="thankyou">
+<h2>🎉 Registration Successful!</h2>
+<p>Kami akan konfirmasi melalui E-mail Anda.</p>
+<p>Silakan cek inbox atau spam secara berkala.</p>
+🔥 See you at the starting line!
+</div>
 
-  <div class="total">
-    <span>Total Bayar</span>
-    <strong>Gratis</strong>
-  </div>
+</div>
 
-  <button class="buy-btn">Beli Tiket Sekarang →</button>
-  <p style="font-size:12px;">Transaksi aman & terenkripsi</p>
-</section>
+<script>
+let current = 0;
+let sections = document.querySelectorAll(".section");
 
-<!-- FOOTER -->
-<footer>
-  <h2>EventKita</h2>
-  <p>Temukan dan beli tiket event favoritmu dengan mudah, cepat, dan aman.</p>
+/* NAVIGATION */
+function show(i){
+  sections.forEach(s=>s.classList.remove("active"));
+  sections[i].classList.add("active");
+}
 
-  <div class="footer-title">Perusahaan</div>
-  <p>Tentang Kami</p>
-  <p>Karir</p>
-  <p>Blog</p>
-  <p>Partner</p>
+function validate(){
+  let inputs = sections[current].querySelectorAll("input, select, textarea");
+  for(let i of inputs){
+    if(!i.value){
+      alert("Harap isi semua data!");
+      return false;
+    }
+  }
+  return true;
+}
 
-  <div class="footer-title">Dukungan</div>
-  <p>Pusat Bantuan</p>
-  <p>Syarat & Ketentuan</p>
-  <p>Kebijakan Privasi</p>
-  <p>Hubungi Kami</p>
+function next(){
+  if(!validate()) return;
+  current++;
+  show(current);
+}
 
-  <div class="footer-title">Langganan Berita</div>
-  <p>Dapatkan info event terbaru setiap minggu.</p>
+function prev(){
+  current--;
+  show(current);
+}
 
-  <input type="email" placeholder="Email kamu">
-  <button class="subscribe">Langganan</button>
+/* SUBMIT */
+function submitForm(){
+  if(!validate()) return;
 
-  <div class="small">
-    © 2026 EventKita Indonesia
-  </div>
-</footer>
+  document.querySelector(".container").style.display="none";
+  document.getElementById("loading").style.display="block";
+
+  setTimeout(()=>{
+    document.getElementById("loading").style.display="none";
+    document.getElementById("thankyou").style.display="block";
+  },5000);
+}
+
+/* COUNTDOWN 10 MENIT */
+let time = 600;
+let timerEl = document.getElementById("timer");
+
+let countdown = setInterval(()=>{
+  let m = Math.floor(time/60);
+  let s = time%60;
+  timerEl.innerHTML = m+":"+(s<10?"0"+s:s);
+
+  time--;
+  if(time < 0){
+    clearInterval(countdown);
+    current = 1;
+    show(current);
+  }
+},1000);
+
+</script>
 
 </body>
 </html>
